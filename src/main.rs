@@ -3,7 +3,7 @@ use std::env;
 use std::fs::File;
 use std::io::{BufRead, BufReader};
 
-fn read_file(path_file: String) {
+fn read_file(path_file: &String) {
     let file_result = File::open(path_file);
 
     let file = match file_result {
@@ -27,14 +27,13 @@ fn read_file(path_file: String) {
         };
         let split_point: Vec<&str> = line.split(", ").collect();
         let joined_line = split_point.join(" ");
-        // println!("{:?}", joined_line);
         let split_point: Vec<&str> = joined_line.split(". ").collect();
         let joined_line = split_point.join(" ");
         let split_point: Vec<&str> = joined_line.split(".").collect();
         let joined_line = split_point.join(" ");
-        println!("{:?}", joined_line);
+        let split_point: Vec<&str> = joined_line.split("!").collect();
+        let joined_line = split_point.join(" ");
         let words: Vec<&str> = joined_line.trim().split_whitespace().collect();
-        println!("{:?}", words);
 
         for word in words {
             let lowercase_word = word.to_lowercase();
@@ -50,14 +49,13 @@ fn read_file(path_file: String) {
 }
 
 fn main() {
-    // let args: Vec<String> = env::args().collect();
-    read_file(String::from("src/text.txt"));
-    // if args.len() > 1 {
-    //     match &args[1][..] {
-    //         "read_file" => read_file(&args[2]),
-    //         _ => println!("ah"),
-    //     };
-    // } else {
-    //     return println!("Error");
-    // }
+    let args: Vec<String> = env::args().collect();
+    if args.len() > 1 {
+        match &args[1][..] {
+            "read_file" => read_file(&args[2]),
+            _ => println!("ah"),
+        };
+    } else {
+        return println!("Error");
+    }
 }

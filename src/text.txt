@@ -1,3 +1,5 @@
-Este é um exemplo de texto.
-Este texto contém palavras repetidas, como texto e exemplo.
-Palavras com letras maiúsculas e minúsculas devem ser consideradas iguais.
+Rust é uma linguagem de programação moderna e poderosa.
+Ela é conhecida por sua segurança, concorrência e eficiência.
+Rust é uma excelente escolha para desenvolvimento de sistemas robustos e confiáveis.
+Neste texto, estamos testando a contagem de palavras únicas em Rust.
+Esperamos que o código funcione corretamente!
